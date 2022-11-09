@@ -1,3 +1,3 @@
 <footer class="footer">
-© 2018 Eliteadmin by themedesigner.in
+© 2022 Eliteadmin by themedesigner.in
 </footer>
