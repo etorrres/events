@@ -16,6 +16,7 @@
                 </li>
                 <li class="nav-small-cap">--- EXTRA COMPONENTS</li>
                 <li class="nav-small-cap">--- SUPPORT</li>
+                <li class="nav-small-cap">--- ENCUESTA</li>
             </ul>
         </nav>
     </div>
