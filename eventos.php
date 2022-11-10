@@ -19,7 +19,7 @@ include_once 'head.php';
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Nuevo Evento</button>
+                            <a href="evento_crear.php"><button type="button" class="btn btn-success d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Nuevo Evento</button></a>
                         </div>
                     </div>
                 </div>

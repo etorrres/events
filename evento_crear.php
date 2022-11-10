@@ -34,25 +34,25 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Nombre</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="example-text" class="form-control" placeholder="enter Course name">
+                                                <input type="text" id="example-text" name="nombre" class="form-control" placeholder="ingrese el nombre">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <label class="col-md-12" for="bdate">Lugar</span>
+                                            <label class="col-md-12" for="bdate">Fecha</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="bdate" name="bdate" class="form-control mydatepicker" placeholder="enter date here">
+                                                <input type="text" id="bdate" name="fecha" class="form-control mydatepicker" placeholder="selecciones la fecha">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <label class="col-md-12" for="example-text">Fecha y Hora</span>
+                                            <label class="col-md-12" for="example-text">Lugar</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="example-text" class="form-control" placeholder="time span of the course">
+                                                <input type="text" id="example-text" name="lugar" class="form-control" placeholder="ingrese el lugar">
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Cupos</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="example-text" class="form-control" placeholder="course fees">
+                                                <input type="number" id="example-text" name="example-text" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                     </div>
@@ -107,6 +107,7 @@ include_once 'head.php';
         <?php include_once 'footer.php';?>
     </div>
     <?php include_once 'scripts.php';?>
+    <script src="assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
     // Date Picker
     jQuery('.mydatepicker').datepicker();
