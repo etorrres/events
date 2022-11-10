@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <?php
 $titulo = 'Panel'; 
 include_once 'head.php';

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <?php
 $titulo = 'BASE'; 
 include_once 'head.php';

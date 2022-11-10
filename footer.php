@@ -1,3 +1,3 @@
 <footer class="footer">
-© 2022 Eliteadmin by themedesigner.in
+© <?php echo date('Y') ;?> - Desarrollado por: Erick Torres y Edisson Sanchez
 </footer>
