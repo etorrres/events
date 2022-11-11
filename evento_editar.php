@@ -8,13 +8,14 @@ require_once 'config/conexion.php';
 include_once 'head.php';
 ?>
 <body class="skin-blue fixed-layout">
-    <?php include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php 
         include_once 'topbar.php';
         include_once 'navbar.php';
 
-        $sql = "SELECT * FROM event_app.evento";
+        $id_evento = $_GET['id'];
+        $sql = "SELECT * FROM event_app.evento WHERE id_evt='$id_evento'";
         $query = mysqli_query($con,$sql);
         $row = mysqli_fetch_array($query);
         ?>
@@ -25,9 +26,6 @@ include_once 'head.php';
                         <h4 class="text-themecolor"><?php echo $titulo;?></h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
-                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -108,7 +106,7 @@ include_once 'head.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <input hidden type="text" name="id_user" value="<?php echo $id_user; ?>">
+                                    <input hidden type="text" name="id_user" value="<?php echo $idUser; ?>">
                                     <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Registrar</button>
                                     <button type="reset" class="btn btn-warning waves-effect waves-light">Resetear</button>
                                     <a href="eventos.php"><button class="btn btn-danger waves-effect waves-light">Cancelar</button></a>
