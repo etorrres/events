@@ -19,8 +19,9 @@
                 </li>
                 <li class="nav-small-cap">--- ENCUESTA</li>
                 <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="ti-calendar"></i><span class="hide-menu">Eventos</span></a>
-                <li class="nav-small-cap">--- SOPORTE</li>
-                <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="ti-calendar"></i><span class="hide-menu">Eventos</span></a>
+                <li class="nav-small-cap">--- USUARIOS</li>
+                <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="mdi mdi-account"></i><span class="hide-menu">Mis usuarios</span></a>
+                <li> <a class="waves-effect waves-dark" href="usuario_crear.php"><i class="fa fa-plus-circle"></i><span class="hide-menu">Crear usuarios</span></a>
             </ul>
         </nav>
     </div>
