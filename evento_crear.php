@@ -18,9 +18,7 @@ include_once 'head.php';
                         <h4 class="text-themecolor"><?php echo $titulo;?></h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
-                        </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -28,22 +26,31 @@ include_once 'head.php';
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase">DETALLES DEL EVENTO</h5>
-                                <form class="form-material m-t-40">
+                                <form class="form-material m-t-40" method="POST" action="php/evento_new.php" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <div class="row">
                                             <label class="col-md-12" for="example-text">Nombre</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="nombre" class="form-control" placeholder="ingrese el nombre">
+                                                <input type="text" id="example-text" name="nombre" class="form-control" placeholder="ingrese el nombre" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <label class="col-md-12" for="bdate">Fecha y Hora</span>
+                                            <label class="col-md-12" for="bdate">Fecha</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="bdate" name="fechahora" class="form-control mydatepicker" placeholder="selecciones la fecha">
+                                                <input type="date" name="fecha" class="form-control" placeholder="selecciones la fecha" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="col-md-12" for="bdate">Hora</span>
+                                            </label>
+                                            <div class="col-md-12">
+                                                <input class="form-control" name="hora" type="time" value="" id="example-time-input" required>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +59,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Lugar</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="lugar" class="form-control" placeholder="ingrese el lugar">
+                                                <input type="text" id="example-text" name="lugar" class="form-control" placeholder="ingrese el lugar" required>
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +68,16 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Cupos</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="number" id="example-text" name="cupos" class="form-control" placeholder="">
+                                                <input type="number" id="example-text" name="cupo" class="form-control" placeholder="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="col-md-12" for="example-text">Enlace Reunion</span>
+                                            </label>
+                                            <div class="col-md-12">
+                                                <input type="text" id="example-text" name="link" class="form-control" placeholder="ingrese el lugar" required>
                                             </div>
                                         </div>
                                     </div>
@@ -69,13 +85,7 @@ include_once 'head.php';
                                         <div class="row">
                                             <label class="col-sm-12">Minuatura Evento</label>
                                             <div class="col-sm-12">
-                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                    <div class="form-control" data-trigger="fileinput">
-                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span>
-                                                    </div>
-                                                    <span class="input-group-addon btn btn-default btn-file">
-                                                    <span class="fileinput-new">Elegir archivo</span> <span class="fileinput-exists">Cambiar</span>
-                                                    <input type="file" name="miniatura"> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Quitar</a> </div>
+                                                <input name="file1" type="file"  class="dropify" />
                                             </div>
                                         </div>
                                     </div>
@@ -83,13 +93,7 @@ include_once 'head.php';
                                         <div class="row">
                                             <label class="col-sm-12">Banner Evento</label>
                                             <div class="col-sm-12">
-                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                    <div class="form-control" data-trigger="fileinput">
-                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span>
-                                                    </div>
-                                                    <span class="input-group-addon btn btn-default btn-file">
-                                                    <span class="fileinput-new">Elegir archivo</span> <span class="fileinput-exists">Cambiar</span>
-                                                    <input type="file" name="poster"> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Quitar</a> </div>
+                                                <input name="poster" type="file"  class="dropify" />
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +101,7 @@ include_once 'head.php';
                                         <div class="row">
                                             <label class="col-md-12">Descripcion</label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" name="descripcion" rows="3"></textarea>
+                                                <textarea class="form-control" name="descripcion" rows="3" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -116,10 +120,49 @@ include_once 'head.php';
         <?php include_once 'footer.php';?>
     </div>
     <?php include_once 'scripts.php';?>
-    <script src="assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript">
-    // Date Picker
-    jQuery('.mydatepicker').datepicker();
-    </script>
+    <script src="js/pages/jasny-bootstrap.js"></script>
+    <script src="assets/node_modules/dropify/dist/js/dropify.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+    </script>    
 </body>
 </html>

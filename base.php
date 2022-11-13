@@ -2,6 +2,8 @@
 <html lang="es">
 <?php
 $titulo = 'BASE'; 
+require_once 'config/db.php';
+require_once 'config/conexion.php';
 include_once 'head.php';
 ?>
 <body class="skin-blue fixed-layout">

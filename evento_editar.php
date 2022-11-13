@@ -13,8 +13,8 @@ include_once 'head.php';
         <?php 
         include_once 'topbar.php';
         include_once 'navbar.php';
-
-        $id_evento = $_GET['id'];
+        $id_evento = 1;
+        //$id_evento = $_GET['id'];
         $sql = "SELECT * FROM event_app.evento WHERE id_evt='$id_evento'";
         $query = mysqli_query($con,$sql);
         $row = mysqli_fetch_array($query);
@@ -39,7 +39,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Nombre</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="nombre" class="form-control" placeholder="ingrese el nombre" value="<?php echo $row['nombre'];?>">
+                                                <input type="text" id="example-text" name="nombre" class="form-control" placeholder="ingrese el nombre" value="<?php echo $row['nombre_evt'];?>">
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="bdate">Fecha y Hora</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="bdate" name="fechahora" class="form-control mydatepicker" placeholder="selecciones la fecha" value="<?php echo $row['fechahora'];?>">
+                                                <input type="text" id="bdate" name="fechahora" class="form-control mydatepicker" placeholder="selecciones la fecha" value="<?php echo $row['fecha_evt'];?>">
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Lugar</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="text" id="example-text" name="lugar" class="form-control" placeholder="ingrese el lugar" value="<?php echo $row['lugar'];?>">
+                                                <input type="text" id="example-text" name="lugar" class="form-control" placeholder="ingrese el lugar" value="<?php echo $row['lugar_evt'];?>">
                                             </div>
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@ include_once 'head.php';
                                             <label class="col-md-12" for="example-text">Cupos</span>
                                             </label>
                                             <div class="col-md-12">
-                                                <input type="number" id="example-text" name="cupos" class="form-control" placeholder="" value="<?php echo $row['cupos'];?>">
+                                                <input type="number" id="example-text" name="cupos" class="form-control" placeholder="" value="<?php echo $row['cupos_evt'];?>">
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@ include_once 'head.php';
                                         <div class="row">
                                             <label class="col-md-12">Descripcion</label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" name="descripcion" rows="3" value="<?php echo $row['descripcion'];?>"></textarea>
+                                                <textarea class="form-control" name="descripcion" rows="3" value="<?php echo $row['descripcion_evt'];?>"></textarea>
                                             </div>
                                         </div>
                                     </div>
