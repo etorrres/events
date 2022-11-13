@@ -1,3 +1,6 @@
+<?php 
+require_once 'php/acceso.php';
+?>
 <aside class="left-sidebar">
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
@@ -12,7 +15,7 @@
                 <li> <a class="waves-effect waves-dark" href="index.php"><i class="icon-speedometer"></i><span class="hide-menu">Panel</span></a>
                 </li>
                 <li class="nav-small-cap">--- ASISTENTES</li>
-                <li> <a class="waves-effect waves-dark" href="eventos_disponibles.php"><i class="ti-calendar"></i><span class="hide-menu">Eventos</span></a>
+                <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="ti-calendar"></i><span class="hide-menu">Eventos</span></a>
                 </li>
                 <li class="nav-small-cap">--- ORGANIZADORES</li>
                 <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="ti-calendar"></i><span class="hide-menu">Mis Eventos</span></a>
