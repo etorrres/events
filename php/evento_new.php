@@ -5,6 +5,7 @@ require_once '../config/conexion.php';
 require_once 'funciones.php';
 
 $id_evt=generar_codigo();
+//$id_usr=$_POST['id_user'];
 $nombre_evt=$_POST['nombre'];
 $lugar_evt=$_POST['lugar'];
 $fecha_evt=$_POST['fecha'];
