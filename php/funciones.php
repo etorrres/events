@@ -2,7 +2,6 @@
 function generar_codigo()
 {
   global $con;
-  $tipo_txt="";
   $year=date('Y');
 
   $query = mysqli_query($con,"SELECT COUNT(id_codigo_evento)+1 FROM evento");
@@ -23,5 +22,16 @@ function generar_codigo()
   }
   $codigo="EVT-".$year."-".$valAuto;
   return $codigo;
+}
+
+function contar_asistencia($id_evt)
+{
+  global $con;
+  
+  $query = mysqli_query($con,"SELECT COUNT(id_asc) FROM asistencia WHERE id_codigo_evento='$id_evt'");
+  $row = mysqli_fetch_array($query);
+  $valor = $row['0'];
+
+  return $valor;
 }
 ?>

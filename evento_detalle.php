@@ -6,7 +6,7 @@ include_once 'head.php';
 $id_evento = $_GET['id'];
 ?>
 <body class="skin-blue fixed-layout">
-    <?php //include_once 'loader.php'; ?>
+    <?php include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php 
         include_once 'topbar.php';
@@ -40,7 +40,7 @@ $id_evento = $_GET['id'];
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3"> <strong>Logo</strong>
+                                    <div class="col-md-3"> 
                                         <br>
                                         <img class="img-responsive" src="<?php echo $datos['foto_evt'];?>"/>
                                     </div>
