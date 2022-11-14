@@ -60,4 +60,5 @@ function fullnameUser($id_usr)
   return $rUser['nombre_usr']." ".$rUser['apellido_usr'];
 
 }
+
 ?>

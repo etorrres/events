@@ -11,7 +11,7 @@ $titulo = 'Sala Evento';
 include_once 'head.php';
 ?>
 <body class="skin-blue fixed-layout">
-    <?php //include_once 'loader.php'; ?>
+    <?php include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php 
         include_once 'topbar.php';
@@ -29,10 +29,59 @@ include_once 'head.php';
                     $sql = "SELECT * FROM event_app.evento, event_app.user WHERE id_codigo_evento='$id_evento' AND evento.id_usr = user.id_usr";
                     $query = mysqli_query($con,$sql);
                     $datos = mysqli_fetch_array($query);
+                    if($datos['estatus_evt']==1){
+                        $modoEv="Programado";
+                        $msg="";
+                        $colorEv="info";
+                        $valorP=100;
+                    }elseif($datos['estatus_evt']==2){
+                        $modoEv="Por Comenzar";
+                        $msg="Dentro de Poco Empezamos";
+                        $colorEv="warning";
+                        $valorP=80;
+                    }elseif($datos['estatus_evt']==3){
+                        $modoEv="Iniciado";
+                        $msg="¡Disfruta de nuestro Evento!";
+                        $colorEv="success";
+                        $valorP=7;
+                    }elseif($datos['estatus_evt']==4){
+                        $modoEv="Iniciado";
+                        $msg="¡Disfruta de nuestro Evento!";
+                        $colorEv="success";
+                        $valorP=100;
+                    }elseif($datos['estatus_evt']==5){
+                        $modoEv="Finalizado";
+                        $msg="¡Disfruta de nuestro Evento!";
+                        $colorEv="danger";
+                        $valorP=100;
+                    }
                     ?>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
+                        <?php if($nivel_usr == 2 AND $datos['estatus_evt']<5){
+                            if($datos['estatus_evt']==1){
+                                $boto_txt="Alertar de Comienzo";
+                                $boto_clr="info";
+                                $boto_ref="php/estado_evt_update.php?id=$id_evento&st=2";
+                            }elseif($datos['estatus_evt']==2){
+                                $boto_txt="Empezar Evento";
+                                $boto_clr="success";
+                                $boto_ref="php/estado_evt_update.php?id=$id_evento&st=3";
+                            }elseif($datos['estatus_evt']==3){
+                                $boto_txt="Empezar Preguntas";
+                                $boto_clr="primary";
+                                $boto_ref="php/estado_evt_update.php?id=$id_evento&st=4";
+                            }elseif($datos['estatus_evt']==4){
+                                $boto_txt="Finalizar Evento";
+                                $boto_clr="danger";
+                                $boto_ref="php/estado_evt_update.php?id=$id_evento&st=5";
+                            }
+                            ?>
+                            <a href="<?php echo $boto_ref ;?>"<button type="button" class="btn btn-<?php echo $boto_clr; ?> d-none d-lg-block m-l-15"><?php echo $boto_txt;?></button></a>
+                        <?php }?>
+                        <?php if($datos['estatus_evt']==4 && $nivel_usr ==3){?>
                             <button type="button" class="btn btn-primary d-none d-lg-block m-l-15" data-toggle="modal" data-target="#responsive-modal"><i class="fa fa-hand-o-up"></i> Nueva pregunta</button>
+                        <?php }?>
                         </div>
                     </div>
                 </div>
@@ -60,14 +109,17 @@ include_once 'head.php';
                                         <tbody>
                                             <tr>
                                                 <td style="width:200px;">
-                                                    <h4 class="card-title">Programado</h4>
-                                                    <h6 class="card-subtitle">¡Gracias por tu Atencion!</h6></td>
+                                                    <h4 class="card-title"><?php echo $modoEv;?></h4>
+                                                    <h6 class="card-subtitle"><?php echo $msg;?></h6></td>
                                                 <td class="vm">
                                                     <div class="progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%; height:7px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        <div class="progress-bar bg-<?php echo $colorEv;?>" role="progressbar" style="width: <?php echo $valorP; ?>%; height:7px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <?php 
+                                            if($datos['estatus_evt']==4){
+                                            ?>
                                             <tr>
                                                 <td style="width:200px;">
                                                     <h4 class="card-title">Preguntas</h4>
@@ -78,6 +130,7 @@ include_once 'head.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <?php }?>
                                         </tbody>
                                     </table>
                                 </div>

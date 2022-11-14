@@ -84,22 +84,27 @@ $id_evento = $_GET['id'];
                                 </div>
                                 <hr>
                                 <?php 
-                                if($nivel_usr==3){
-                                  if(validar_inscripcion($id_evento,$id_usr)==false){  
+                                if($nivel_usr==3){ 
                                 ?>
                                 <form method="POST" action="php/evento_incripcion.php">
                                 <input hidden type="text" name="id_usr" value="<?php echo $id_usr; ?>">
                                 <input hidden type="text" name="id_evt" value="<?php echo $id_evento ?>">
                                 <div class="row text-center p-10">
+                                    <?php if(validar_inscripcion($id_evento,$id_usr)==false){ ?>
                                     <button class="btn btn-success btn-lg" type="submit">Inscribirse</button>
+                                    <?php }else{?>
+                                    <a href="evento_sala.php?id=<?php echo$id_evento; ?>"><button class="btn btn-info btn-lg">Sala Evento</button></a>
+                                    <?php }?>
                                 </div>
                                 </form>
-                                <?php }else{?>
+                                <?php 
+                                }
+                                if($nivel_usr<3){
+                                ?>
                                 <div class="row text-center p-10">
                                     <a href="evento_sala.php?id=<?php echo$id_evento; ?>"><button class="btn btn-info btn-lg">Sala Evento</button></a>
                                 </div>
-                                <?php }
-                                }?>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
