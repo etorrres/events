@@ -105,7 +105,7 @@ include_once 'head.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" name="id_user" value="<?php echo $id_user; ?>">
+                                    <input hidden type="text" name="id_user" value="<?php echo $id_usr; ?>">
                                     <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Registrar</button>
                                     <button type="reset" class="btn btn-warning waves-effect waves-light">Resetear</button>
                                     <a href="eventos.php"><button class="btn btn-danger waves-effect waves-light">Cancelar</button></a>

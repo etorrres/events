@@ -21,22 +21,31 @@ $id_evento = $_GET['id'];
                     <div class="col-md-5 align-self-center">
                         <h4 class="text-themecolor"><?php echo $titulo;?></h4>
                     </div>
+                    <?php 
+                    $sql = "SELECT * FROM event_app.evento, event_app.user WHERE id_codigo_evento='$id_evento' AND evento.id_usr = user.id_usr";
+                    $query = mysqli_query($con,$sql);
+                    $datos = mysqli_fetch_array($query);
+                    ?>
                     <div class="col-md-7 align-self-center text-right">
-
+                    <div class="d-flex justify-content-end align-items-center">
+                            <?php 
+                            if($nivel_usr==2){
+                                ?>
+                                <a href="evento_editar.php?id=<?php echo $datos['id_codigo_evento'];?>"><button type="button" class="btn btn-warning d-none d-lg-block m-l-15"><i class="fa fa-pencil"></i> Editar</button></a>
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
-                <?php 
-                $sql = "SELECT * FROM event_app.evento, event_app.user WHERE id_codigo_evento='$id_evento' AND evento.id_usr = user.id_usr";
-                $query = mysqli_query($con,$sql);
-                $datos = mysqli_fetch_array($query);
-                ?>
+                
                 <div class="row">
                     <div class="col-md-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 m-b-20">
-                                        <img class="img-responsive" src="<?php echo $datos['poster_evt'];?>" alt="posterEvento">
+                                        <img class="img-responsive" width="" src="<?php echo $datos['poster_evt'];?>" alt="posterEvento">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -72,6 +81,9 @@ $id_evento = $_GET['id'];
                                     </div>
                                 </div>
                                 <hr>
+                                <?php 
+                                
+                                ?>
                                 <div class="row text-center p-10">
                                     <a href="evento_inscripcion.php"><button class="btn btn-success btn-lg">Inscribirse</button></a>
                                 </div>

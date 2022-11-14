@@ -20,7 +20,15 @@ include_once 'head.php';
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                            <a href="evento_crear.php"><button type="button" class="btn btn-success d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Nuevo Evento</button></a>
+                            <?php 
+                            if($nivel_usr==2){
+                                ?>
+                                <a href="evento_crear.php"><button type="button" class="btn btn-success d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Nuevo Evento</button></a>
+                                <?php
+                            }else{
+
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -35,16 +43,17 @@ include_once 'head.php';
                     $sql = "SELECT * FROM event_app.evento WHERE id_usr = '$id_usr'";
                 }elseif($nivel_usr==3){
                     $sql = "SELECT * FROM event_app.evento WHERE estatus_evt<3";
-                }else{
-
                 }
                 if(isset($sql)){
-                    $query=mysqli_query($con, $sql);
-                    while($datos=mysqli_fetch_array($query)){
+                    
                 ?>
                 <div class="row">
+                    <?php 
+                    $query=mysqli_query($con, $sql);
+                    while($datos=mysqli_fetch_array($query)){
+                    ?>
                     <div class="col-md-3">
-                            <img class="img-responsive" alt="miniaturaEvento" src="<?php echo $datos['foto_evt'];?>">
+                            <img class="rounded mx-auto d-block" alt="miniaturaEvento" height="230" src="<?php echo $datos['foto_evt'];?>">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $datos['nombre_evt'];?></h5>
@@ -61,11 +70,11 @@ include_once 'head.php';
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php 
                         }
                     }else{
                     ?>
+                    </div>
                     <div class="alert alert-danger">
                         <h3 class="text-danger"><i class="fa fa-exclamation-triangle"></i> ADVERTENCIA</h3> ERROR DE VALIDACION DE USUARIO, PUEDA QUE NO TENGA ACCESO A ESTA SECCION. CONTACTE A SOPORTE TECNICO
                     </div>
