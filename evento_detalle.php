@@ -1,3 +1,8 @@
+<?php
+require_once 'config/db.php';
+require_once 'config/conexion.php';
+require_once 'php/funciones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <?php
@@ -6,14 +11,11 @@ include_once 'head.php';
 $id_evento = $_GET['id'];
 ?>
 <body class="skin-blue fixed-layout">
-    <?php include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php 
         include_once 'topbar.php';
         include_once 'navbar.php';
-        require_once 'config/db.php';
-        require_once 'config/conexion.php';
-        require_once 'php/funciones.php';
         ?>
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -29,7 +31,7 @@ $id_evento = $_GET['id'];
                     <div class="col-md-7 align-self-center text-right">
                     <div class="d-flex justify-content-end align-items-center">
                             <?php 
-                            if($nivel_usr==2){
+                            if($nivel_usr<3){
                                 ?>
                                 <a href="evento_editar.php?id=<?php echo $datos['id_codigo_evento'];?>"><button type="button" class="btn btn-warning d-none d-lg-block m-l-15"><i class="fa fa-pencil"></i> Editar</button></a>
                                 <?php
@@ -76,17 +78,28 @@ $id_evento = $_GET['id'];
                                 <div class="row p-b-15">
                                     <div class="col-md-4">
                                         <ul class="list-icons">
-                                            <li><a href="<?php echo $datos['link_evt'] ?>"><i class="fa fa-check text-success"></i> <?php echo $datos['link_evt'] ?></a></li>
+                                            <li><a target="_blank" href="<?php echo $datos['link_evt'] ?>"><i class="fa fa-check text-success"></i> <?php echo $datos['link_evt'] ?></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <hr>
                                 <?php 
-                                
+                                if($nivel_usr==3){
+                                  if(validar_inscripcion($id_evento,$id_usr)==false){  
                                 ?>
+                                <form method="POST" action="php/evento_incripcion.php">
+                                <input hidden type="text" name="id_usr" value="<?php echo $id_usr; ?>">
+                                <input hidden type="text" name="id_evt" value="<?php echo $id_evento ?>">
                                 <div class="row text-center p-10">
-                                    <a href="evento_inscripcion.php"><button class="btn btn-success btn-lg">Inscribirse</button></a>
+                                    <button class="btn btn-success btn-lg" type="submit">Inscribirse</button>
                                 </div>
+                                </form>
+                                <?php }else{?>
+                                <div class="row text-center p-10">
+                                    <a href="evento_sala.php?id=<?php echo$id_evento; ?>"><button class="btn btn-info btn-lg">Sala Evento</button></a>
+                                </div>
+                                <?php }
+                                }?>
                             </div>
                         </div>
                     </div>

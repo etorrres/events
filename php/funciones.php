@@ -1,4 +1,5 @@
 <?php 
+
 function generar_codigo()
 {
   global $con;
@@ -33,5 +34,30 @@ function contar_asistencia($id_evt)
   $valor = $row['0'];
 
   return $valor;
+}
+
+function validar_inscripcion($id_evt, $id_usr)
+{
+  global $con;
+
+  $query = mysqli_query($con,"SELECT * FROM asistencia WHERE id_usuario='$id_usr' AND id_codigo_evento = '$id_evt'");
+  $row = mysqli_fetch_array($query);
+  if($row){
+    return true;
+  }else{
+    return false;
+  }
+
+}
+
+function fullnameUser($id_usr)
+{
+  global $con;
+  $sUser = "SELECT * FROM event_app.user WHERE id_usr='$id_usr'";
+  $qUser = mysqli_query($con,$sUser);
+  $rUser = mysqli_fetch_array($qUser);
+
+  return $rUser['nombre_usr']." ".$rUser['apellido_usr'];
+
 }
 ?>

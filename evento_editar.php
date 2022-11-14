@@ -1,3 +1,8 @@
+<?php
+require_once 'config/db.php';
+require_once 'config/conexion.php';
+require_once 'php/funciones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <?php
@@ -21,8 +26,6 @@ include_once 'head.php';
                     </div>
                 </div>
                 <?php
-                require_once 'config/db.php';
-                require_once 'config/conexion.php';
                 $id_evento = $_GET['id'];
                 $sql = "SELECT * FROM event_app.evento WHERE id_codigo_evento='$id_evento'";
                 $query = mysqli_query($con,$sql);

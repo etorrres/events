@@ -1,9 +1,12 @@
+<?php
+require_once 'config/db.php';
+require_once 'config/conexion.php';
+require_once 'php/funciones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <?php
 $titulo = 'Nuevo usuario';
-require_once 'config/db.php';
-require_once 'config/conexion.php';
 include_once 'head.php';
 ?>
 
@@ -22,7 +25,7 @@ include_once 'head.php';
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
+
                         </div>
                     </div>
                 </div>
@@ -94,7 +97,7 @@ include_once 'head.php';
                                             <br>
                                             <div class="form-group row m-b-0">
                                                 <div class="offset-sm-3 col-sm-9">
-                                                    <p class="text-muted m-b-30 font-13"> Si ya tienes una cuenta <a href="#"><strong>inicia sesión</strong> </a></p>
+                                                    <p class="text-muted m-b-30 font-13"> Si ya tienes una cuenta <a href="login.php"><strong>inicia sesión</strong> </a></p>
                                                 </div>
                                             </div>
                                         </form>
