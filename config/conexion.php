@@ -1,6 +1,6 @@
 <?php
 
-    $con=@mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $con=@mysqli_connect('localhost', 'root', '', 'event_app');
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }

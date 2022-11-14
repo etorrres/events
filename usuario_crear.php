@@ -77,17 +77,12 @@ include_once 'head.php';
                                                 <div class="col-sm-9">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="ti-crown"></i></span></div>                                                        
-                                                                <select class="form-control" id="exampleInputuname4">
+                                                                <select class="form-control" id="exampleInputuname4" name="nivel">
                                                                     <option disabled selected value="">Selecciona una opción</option>
                                                                     <option value="1">Organziador</option>
                                                                     <option value="2">Asistente</option>
                                                                 </select>
                                                         </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="input-group">
-                                                    <input type="hidden" class="form-control" id="exampleInputEmail3" placeholder="Estatus" value="true">
                                                 </div>
                                             </div>
                                             <div class="form-group row m-b-0">
