@@ -5,6 +5,7 @@ if (!isset($_SESSION['user_login_status'])) {
 }else{
     $id_usr = $_SESSION['id_usr'];
     $nivel_usr = $_SESSION['nivel_usr'];
+    $fullnameUser = $_SESSION['f_name'];
 }
 
 

@@ -21,6 +21,7 @@ if(isset($user) || isset($pass)){
             $_SESSION['id_usr'] = $row["id_usr"];
             $_SESSION['nombre_usr'] = $row["nombre_usr"];
             $_SESSION['apellido_usr'] = $row["apellido_usr"];
+            $_SESSION['f_name'] = $row["nombre_usr"]." ".$row["apellido_usr"];
             $_SESSION['email_usr'] = $row["email_usr"];
             $_SESSION['nivel_usr'] = $row["nivel_usr"];
             $_SESSION['user_login_status'] = 1;

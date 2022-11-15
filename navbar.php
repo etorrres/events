@@ -2,7 +2,7 @@
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="recursos/imagenes/asistente_icon.png" alt="user-img" class="img-circle"><span class="hide-menu"><?php echo fullnameUser($id_usr);?></span></a>
+                <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="recursos/imagenes/asistente_icon.png" alt="user-img" class="img-circle"><span class="hide-menu"><?php echo $fullnameUser?></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="micuenta.php"><i class="ti-settings"></i> Cuenta</a></li>
                         <li><a href="php/logout.php"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
