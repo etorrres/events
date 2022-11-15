@@ -10,14 +10,14 @@
                 </li>
                 <li class="nav-small-cap">--- MENU</li>
                 <?php 
-                if($nivel_usr==1){
+                if($nivel_usr==0){
                 ?>
                 <li> <a class="waves-effect waves-dark" href="index.php"><i class="icon-speedometer"></i><span class="hide-menu">Panel</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="usuarios.php"><i class="mdi mdi-account"></i><span class="hide-menu">Mis usuarios</span></a></li>
                 
                 <?php
                 }
-                if($nivel_usr>0){
+                if($nivel_usr>=1){
                 ?>
                 <li> <a class="waves-effect waves-dark" href="eventos.php"><i class="ti-calendar"></i><span class="hide-menu">Eventos</span></a></li>
                 <?php

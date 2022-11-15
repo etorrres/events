@@ -1,5 +1,5 @@
 <?php
-require_once 'php/acceso.php';
+//require_once 'php/acceso.php';
 require_once 'config/db.php';
 require_once 'config/conexion.php';
 require_once 'php/funciones.php';
@@ -16,7 +16,7 @@ include_once 'head.php';
     <div id="main-wrapper">
         <?php
         include_once 'topbar.php';
-        include_once 'navbar.php';
+       //include_once 'navbar.php';
         ?>
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -36,7 +36,7 @@ include_once 'head.php';
                             <div class="card-body">
                                 <!--  -->
                                 <div class="col-md-6">
-                                    <div class="card card-body">
+                                    <div class="card-body collapse show">
                                         <h3 class="box-title m-b-0">Regístrate</h3>
                                         <p class="text-muted m-b-30 font-13"> Se parte de la mejor comunidad de eventos</p>
                                         <form class="form-horizontal p-t-20" action="usuario_insert.php" method="POST">

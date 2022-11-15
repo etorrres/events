@@ -8,11 +8,11 @@ require_once 'php/funciones.php';
 <html lang="es">
 <?php
 $titulo = 'Editar usuario';
-
+include_once 'head.php';
 ?>
 
 <body class="skin-blue fixed-layout">
-    <?php //include_once 'loader.php'; 
+    <?php include_once 'loader.php'; 
     ?>
     <div id="main-wrapper">
         <?php

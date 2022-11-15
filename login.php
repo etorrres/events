@@ -45,6 +45,9 @@
       <label for="floatingPassword">Constraseña</label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+    <br>
+    <br>
+    <a href="usuario_crear.php"><button class="w-100 btn btn-lg btn-info" type="button">Registrarse</button></a>
     <p class="mt-5 mb-3 text-muted">Desarrollado por: Erick Torres y Edisson Sanchez | &copy; <?php echo date('Y');?> </p>
   </form>
 </main>
