@@ -43,7 +43,7 @@ include_once 'head.php';
                 }elseif($nivel_usr==2){
                     $sql = "SELECT * FROM event_app.evento WHERE id_usr = '$id_usr'";
                 }elseif($nivel_usr==3){
-                    $sql = "SELECT * FROM event_app.evento WHERE estatus_evt<3";
+                    $sql = "SELECT * FROM event_app.evento WHERE estatus_evt<5";
                 }
                 if(isset($sql)){
                     
@@ -71,11 +71,12 @@ include_once 'head.php';
                             </div>
                         </div>
                     </div>
-                    <?php 
-                    }
+                </div>
+                <?php 
+                }
                 }else{
                 ?>
-                </div>
+                
                 <div class="alert alert-danger">
                         <h3 class="text-danger"><i class="fa fa-exclamation-triangle"></i> ADVERTENCIA</h3> ERROR DE VALIDACION DE USUARIO, PUEDA QUE NO TENGA ACCESO A ESTA SECCION. CONTACTE A SOPORTE TECNICO.
                 </div>
