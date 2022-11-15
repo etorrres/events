@@ -6,7 +6,7 @@ include_once 'head.php';
 ?>
 
 <body class="skin-blue fixed-layout">
-    <?php include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php
         include_once 'topbar.php';

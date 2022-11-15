@@ -17,12 +17,16 @@ else {
     $sql_query="INSERT INTO user (nombre_usr,apellido_usr,email_usr,nivel_usr,password_usr,estado_usr)
                         VALUES ('$nombre','$apellido','$email','$nivel','$encry_passw','$estatus')";
     if($con->query($sql_query) === TRUE){
-        echo "Usuario registrado exitosamente";
-        echo "<meta http-equiv='refresh' content='3;url=usuario_crear.php'>";
+        echo '<script type="text/javascript">;
+        alert("Usuario Creado Correctamente...");
+        window.location.href="usuario_crear.php";</script>';
     }
     else{
-        echo "Error al intentar registrar el usuario";
+        echo '<script type="text/javascript">;
+        alert("Error al crear el usuario");
+        window.location.href="usuario_crear.php";</script>';
     }
 }
 
 ?>
+

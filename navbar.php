@@ -17,6 +17,7 @@ require_once 'php/acceso.php';
                 ?>
                 <li> <a class="waves-effect waves-dark" href="index.php"><i class="icon-speedometer"></i><span class="hide-menu">Panel</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="usuarios.php"><i class="mdi mdi-account"></i><span class="hide-menu">Mis usuarios</span></a></li>
+                
                 <?php
                 }
                 if($nivel_usr>0){

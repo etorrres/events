@@ -1,5 +1,5 @@
 <?php 
-$id_usr = 1;
+$id_usr = 6;
 $nivel_usr = 2;
 
 ?>

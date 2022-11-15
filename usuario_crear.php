@@ -82,8 +82,8 @@ include_once 'head.php';
                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="ti-crown"></i></span></div>                                                        
                                                                 <select class="form-control" id="exampleInputuname4" name="nivel">
                                                                     <option disabled selected value="">Selecciona una opción</option>
-                                                                    <option value="1">Organziador</option>
-                                                                    <option value="2">Asistente</option>
+                                                                    <option value="2">Organziador</option>
+                                                                    <option value="3">Asistente</option>
                                                                 </select>
                                                         </div>
                                                 </div>
@@ -115,6 +115,10 @@ include_once 'head.php';
     <?php include_once 'footer.php'; ?>
     </div>
     <?php include_once 'scripts.php'; ?>
+
+    <!-- Sweet-Alert  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>
