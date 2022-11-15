@@ -8,7 +8,7 @@ require_once 'php/funciones.php';
 <html lang="es">
 <?php
 $titulo = 'Editar usuario';
-
+include_once 'head.php';
 ?>
 
 <body class="skin-blue fixed-layout">

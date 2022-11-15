@@ -59,11 +59,12 @@ include_once 'head.php';
                     ?>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                        <?php if($nivel_usr == 2 AND $datos['estatus_evt']<5){
+                        <?php if($nivel_usr < 3 AND $datos['estatus_evt']<5){
                             if($datos['estatus_evt']==1){
                                 $boto_txt="Alertar de Comienzo";
                                 $boto_clr="info";
                                 $boto_ref="php/estado_evt_update.php?id=$id_evento&st=2";
+                                $pregunta_txt="Lista de Preguntas";
                             }elseif($datos['estatus_evt']==2){
                                 $boto_txt="Empezar Evento";
                                 $boto_clr="success";

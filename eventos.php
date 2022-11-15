@@ -43,7 +43,7 @@ include_once 'head.php';
                 }elseif($nivel_usr==2){
                     $sql = "SELECT * FROM event_app.evento WHERE id_usr = '$id_usr'";
                 }elseif($nivel_usr==3){
-                    $sql = "SELECT * FROM event_app.evento WHERE estatus_evt<3";
+                    $sql = "SELECT * FROM event_app.evento WHERE estatus_evt<5";
                 }
                 if(isset($sql)){
                     

@@ -94,7 +94,7 @@ $id_evento = $_GET['id'];
                                     <?php if(validar_inscripcion($id_evento,$id_usr)==false){ ?>
                                     <button class="btn btn-success btn-lg" type="submit">Inscribirse</button>
                                     <?php }else{?>
-                                    <a href="evento_sala.php?id=<?php echo$id_evento; ?>"><button class="btn btn-info btn-lg">Sala Evento</button></a>
+                                    <a href="evento_sala.php?id=<?php echo$id_evento; ?>"><button type=button class="btn btn-info btn-lg">Sala Evento</button></a>
                                     <?php }?>
                                 </div>
                                 </form>
