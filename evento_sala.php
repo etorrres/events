@@ -140,45 +140,122 @@ include_once 'head.php';
                         </div>
                     </div>
                 </div>
+                <?php 
+                if($datos['estatus_evt']==4){
+                    
+                ?>
                 <div class="row">
-                    <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Mis Preguntas</h4>
+                    <div class="col-12">
+                        <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Preguntas</h4>
+                            <div class="table-responsive m-t-40">
+                                <table id="myTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Usuario</th>
+                                            <th>Pregunta</th>
+                                            <th>Estado</th>
+                                            <?php if($nivel_usr < 3) {?>
+                                            <th>Accion</th>
+                                            <?php }?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if($nivel_usr <3){
+                                            $sPreguntas = "SELECT * FROM event_app.pregunta WHERE id_codigo_evento = '$id_evento' AND estado_pre=0 ORDER BY id_codigo_evento ASC";
+                                        }elseif($nivel_usr == 3 ){
+                                            $sPreguntas = "SELECT * FROM event_app.pregunta WHERE id_usr = '$id_usr' AND id_codigo_evento = '$id_evento' ORDER BY id_codigo_evento DESC";
+                                            
+                                        }
+                                        $qPreguntas = mysqli_query($con,$sPreguntas);
+                                        while($rPre=mysqli_fetch_array($qPreguntas)){
+                                            $id_p=$rPre['id_pre'];
+                                            $id_usr_db=$rPre['id_usr'];
+                                            if($rPre['estado_pre']==true){
+                                                $estado_txt="Respondida";
+                                                $estado_clr="success";
+                                            }else{
+                                                $estado_txt="Pendiente";
+                                                $estado_clr="primary";
+                                            }
+                                        ?>
+                                        <tr>
+                                            <td><?php echo fullnameUser($id_usr_db);?></td>
+                                            <td><?php echo $rPre['pregunta_pre'];?></td>
+                                            <td>
+                                                <span class="label label-<?php echo $estado_clr;?>"><?php echo $estado_txt?></span> 
+                                            </td>
+                                            <?php if($nivel_usr < 3 ){?>
+                                            <td>
+                                                <a href="php/pregunta_update.php?id=<?php echo $id_p.'&evt='.$id_evento;?>"><button type="button" class="btn btn-outline-success" control-id="ControlID-84"><i class="fa fa-check"></i></button></a>
+                                            </td>
+                                            <?php }?>
+                                        </tr>
+                                        <?php }?>
+                                    </tbody>
+                                </table>
                             </div>
-                            <?php 
-                            $sPreguntas = "SELECT * FROM event_app.pregunta WHERE id_usr = '$id_usr' AND id_codigo_evento = '$id_evento'";
-                            $qPreguntas = mysqli_query($con,$sPreguntas);
-                            while($rPre=mysqli_fetch_array($qPreguntas)){
-                                if($rPre['estado_pre']==true){
-                                    $estado_txt="Respondida";
-                                    $estado_clr="success";
-                                }else{
-                                    $estado_txt="Pendiente";
-                                    $estado_clr="primary";
-                                }
-                            ?>
-                            <div class="comment-widgets m-b-20">
-                                <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><span class="round"><img src="recursos/imagenes/asistente_icon.png" alt="user" width="50"></span></div>
-                                    <div class="comment-text w-100">
-                                        <h5><?php echo fullnameUser($id_usr);?></h5>
-                                        <div class="comment-footer">
-                                            <span class="label label-<?php echo $estado_clr;?>"><?php echo $estado_txt?></span> <span class="action-icons">
-                                                <a href="javascript:void(0)"><i class="mdi mdi-checkbox-marked-circle"></i></a>
-                                            </span>
-                                        </div>
-                                        <p class="m-b-5 m-t-10"><?php echo $rPre['pregunta_pre'];?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php }?>
+                        </div>
                         </div>
                     </div>
+                </div>
+                <?php }?>
                 <?php include_once 'rightbar.php';?>
             </div>
         </div>
         <?php include_once 'footer.php';?>
     </div>
     <?php include_once 'scripts.php';?>
+    <script src="assets/node_modules/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    }); 
+    </script>
 </body>
 </html>
