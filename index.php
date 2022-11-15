@@ -1,4 +1,5 @@
 <?php
+require_once 'php/acceso.php';
 require_once 'config/db.php';
 require_once 'config/conexion.php';
 require_once 'php/funciones.php';
@@ -10,7 +11,7 @@ $titulo = 'Panel';
 include_once 'head.php';
 ?>
 <body class="skin-blue fixed-layout">
-    <?php include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php 
         include_once 'topbar.php';

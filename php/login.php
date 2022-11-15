@@ -17,6 +17,7 @@ if(isset($user) || isset($pass)){
 
         if(password_verify($pass, $row["password_usr"])){
 
+            session_start();
             $_SESSION['id_usr'] = $row["id_usr"];
             $_SESSION['nombre_usr'] = $row["nombre_usr"];
             $_SESSION['apellido_usr'] = $row["apellido_usr"];

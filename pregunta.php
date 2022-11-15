@@ -1,3 +1,9 @@
+<?php
+require_once 'php/acceso.php';
+require_once 'config/db.php';
+require_once 'config/conexion.php';
+require_once 'php/funciones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <?php
