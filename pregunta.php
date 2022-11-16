@@ -12,7 +12,8 @@ include_once 'head.php';
 ?>
 
 <body class="skin-blue fixed-layout">
-    <?php //include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php'; 
+    ?>
     <div id="main-wrapper">
         <?php
         include_once 'topbar.php';
@@ -30,39 +31,45 @@ include_once 'head.php';
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <!-- sample modal content -->
-                    <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Realiza tu pregunta</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="pregunta_crear.php" method="Post">
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="control-label">Mi pregunta:</label>
-                                            <input type="text" class="form-control" id="recipient-name" name="recipient-question">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Preguntas</h4>
+                                <form class="form-material m-t-40" action="pregunta_crear.php" method="POST">
+                                    <div class="form-group row">
+                                        <div class="col-sm-9">
+                                            <?php
+                                            //include('config/conexion.php');
+                                            $sql = "SELECT * FROM user WHERE id_usr =" . $_REQUEST['id_usr'];
+                                            $resultado = $con->query($sql);
+                                            $row = $resultado->fetch_assoc();
+                                            ?>
+                                            <input type="hidden" class="form-control" name="usuario" placeholder="" value="<?php echo $row['id_usr'] ?>">
                                         </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-success waves-effect waves-light">Enviar</button>
-                                </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>¿Cuál es su pregunta?</label>
+                                        <input type="text" class="form-control" placeholder="Redacte la pregunta">
+                                    </div>
+                                    <div class="form-group m-b-0">
+                                        <div class="offset-sm-3 col-sm-9">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Enviar</button>
+                                            <a href="eventos.php" class="btn btn-secondary waves-effect waves-light m-t-10">Regreasar</a>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
+
+
+                        <?php include_once 'rightbar.php'; ?>
                     </div>
                 </div>
-
-                <?php include_once 'rightbar.php'; ?>
+                <?php include_once 'footer.php'; ?>
             </div>
-        </div>
-        <?php include_once 'footer.php'; ?>
-    </div>
-    <?php include_once 'scripts.php'; ?>
+            <?php include_once 'scripts.php'; ?>
 </body>
 
 </html>

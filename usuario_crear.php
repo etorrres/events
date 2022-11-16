@@ -15,14 +15,15 @@ include_once 'head.php';
     <?php include_once 'loader.php'; ?>
     <div id="main-wrapper">
         <?php
-        include_once 'topbar.php';
+        //include_once 'topbar.php';
        //include_once 'navbar.php';
         ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor"><?php echo $titulo; ?></h4>
+                        <!-- <h4 class="text-themecolor"><?php echo $titulo; ?></h4> -->
+                        <img style="text-align: center;" class="mb-4" src="assets/images/logo-icon.png" alt="" width="70" height="70">
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
@@ -37,8 +38,8 @@ include_once 'head.php';
                                 <!--  -->
                                 <div class="col-md-6">
                                     <div class="card-body collapse show">
-                                        <h3 class="box-title m-b-0">Regístrate</h3>
-                                        <p class="text-muted m-b-30 font-13"> Se parte de la mejor comunidad de eventos</p>
+                                        <h3 style="text-align: center;" class="box-title m-b-0">Regístrate</h3>
+                                        <p style="text-align: center;" class="text-muted m-b-30 font-13"> Se parte de la mejor comunidad de eventos</p>
                                         <form class="form-horizontal p-t-20" action="usuario_insert.php" method="POST">
                                             <div class="form-group row">
                                                 <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre*</label>

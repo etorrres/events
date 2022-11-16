@@ -19,12 +19,12 @@ else {
     if($con->query($sql_query) === TRUE){
         echo '<script type="text/javascript">;
         alert("Usuario Creado Correctamente...");
-        window.location.href="usuario_crear.php";</script>';
+        window.location.href="login.php";</script>';
     }
     else{
         echo '<script type="text/javascript">;
         alert("Error al crear el usuario");
-        window.location.href="usuario_crear.php";</script>';
+        window.location.href="login.php";</script>';
     }
 }
 
