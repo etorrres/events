@@ -61,4 +61,43 @@ function fullnameUser($id_usr)
 
 }
 
+function enviar_notificacion ($id_evt, $tipo)
+{
+  global $con;
+
+  $sqlE = "SELECT * FROM event_app.evento, event_app.asistencia WHERE evento.id_codigo_evento='$id_evt'";
+  $query = mysqli_query($con,$sqlE);
+  $data = mysqli_fetch_array($query);
+
+  $evento_name = $data['nombre_evt'];
+  if($tipo==1){
+    exit();
+    return true;
+  }elseif($tipo==2){
+    $mensaje="El Evento ".$evento_name." Esta por Comenzar.";
+  }elseif($tipo==3){
+    $mensaje="El Evento ".$evento_name." Ha comenzado.";
+  }elseif($tipo==4){
+    $mensaje="Ya puedes realizar tu preguntas en el evento ".$evento_name;
+  }elseif($tipo==5){
+    $mensaje="El evento ".$evento_name." ha finalizado, nos gustarias saber tu opinion en la siguiente encuesta";
+  }
+
+  $sEmail = "SELECT * FROM event_app.user, event_app.asistencia WHERE asistencia.id_codigo_evento = '$id_evt' AND asistencia.id_usuario = user.id_usr";
+  $qEmail = mysqli_query($con,$sEmail);
+
+  $de="notificacion@eventApp.com";
+  $encabezado="Enviado automaticamente desde Event App";
+  $asunto="Notificacion Event App";
+
+  while ($rEmail=mysqli_fetch_array($qEmail)){
+    $para = $rEmail['email_user'];
+
+    mail($para,$asunto,$mensaje,$encabezado);
+
+  }
+  
+return true;
+
+}
 ?>

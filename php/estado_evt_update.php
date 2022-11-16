@@ -6,9 +6,12 @@ require_once 'funciones.php';
 $id_evento=$_GET['id'];
 $estado=$_GET['st'];
 
+if(enviar_notificacion($id_evento,$estado)==true){
+
+
 $sql = "UPDATE event_app.evento SET estatus_evt=$estado WHERE id_codigo_evento='$id_evento'";
 $query = mysqli_query($con,$sql);
-
+/*
 if($query){
     echo '<script type="text/javascript">;
     alert("Estado del Evento actualizado Correctamente...");
@@ -17,5 +20,7 @@ if($query){
     echo '<script type="text/javascript">;
     alert("Error! Al actualizar el Estado del Evento...");
     window.location.href="../evento_sala.php?id='.$id_evento.'";</script>';
+}
+*/
 }
 ?>

@@ -71,14 +71,17 @@ include_once 'head.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 <?php 
                 }
+                ?>
+                </div>
+                <?php 
                 }else{
                 ?>
                 
                 <div class="alert alert-danger">
-                        <h3 class="text-danger"><i class="fa fa-exclamation-triangle"></i> ADVERTENCIA</h3> ERROR DE VALIDACION DE USUARIO, PUEDA QUE NO TENGA ACCESO A ESTA SECCION. CONTACTE A SOPORTE TECNICO.
+                    <h3 class="text-danger"><i class="fa fa-exclamation-triangle"></i> ADVERTENCIA</h3> ERROR DE VALIDACION DE USUARIO, PUEDA QUE NO TENGA ACCESO A ESTA SECCION. CONTACTE A SOPORTE TECNICO
                 </div>
                 <?php
                 }

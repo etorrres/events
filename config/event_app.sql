@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2022 a las 03:24:51
+-- Tiempo de generación: 15-11-2022 a las 19:53:07
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -61,6 +61,25 @@ CREATE TABLE `encuesta` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `id_estado` int(1) NOT NULL,
+  `nombre_estado` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `nombre_estado`) VALUES
+(0, 'Deshabilitado'),
+(1, 'Habilitado');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `evento`
 --
 
@@ -75,8 +94,36 @@ CREATE TABLE `evento` (
   `estatus_evt` int(1) NOT NULL,
   `foto_evt` varchar(255) NOT NULL,
   `link_evt` varchar(250) NOT NULL,
-  `poster_evt` varchar(255) NOT NULL
+  `poster_evt` varchar(255) NOT NULL,
+  `id_usr` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `evento`
+--
+
+INSERT INTO `evento` (`id_codigo_evento`, `nombre_evt`, `descripcion_evt`, `lugar_evt`, `fecha_evt`, `hora_evt`, `cupo_evt`, `estatus_evt`, `foto_evt`, `link_evt`, `poster_evt`, `id_usr`) VALUES
+('EVT-2022-0001', 'Ciberseguridad', 'Nuevas metodologias de ciberataques', 'UTH', '2022-11-15', '15:00:00', 20, 1, 'recursos/imagenes/eventos/MINIATURA-EVT-2022-0001.jpg', 'https://zoom.com', 'recursos/imagenes/eventos/POSTER-EVT-2022-0001.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `niveles`
+--
+
+CREATE TABLE `niveles` (
+  `id_lvl` int(1) NOT NULL,
+  `nombre_lvl` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `niveles`
+--
+
+INSERT INTO `niveles` (`id_lvl`, `nombre_lvl`) VALUES
+(1, 'Administrador'),
+(2, 'Organizador'),
+(3, 'Asistente');
 
 -- --------------------------------------------------------
 
@@ -105,8 +152,18 @@ CREATE TABLE `user` (
   `email_usr` varchar(150) NOT NULL,
   `nivel_usr` int(1) NOT NULL,
   `password_usr` varchar(250) NOT NULL,
-  `estado_usr` tinyint(1) NOT NULL
+  `estado_usr` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_usr`, `nombre_usr`, `apellido_usr`, `email_usr`, `nivel_usr`, `password_usr`, `estado_usr`) VALUES
+(6, 'Erick Manuel', 'Torres', 'et@admin.com', 1, '$2y$10$oPPM/sGYqvbDGThmypskUugaoiOA5yyM669LZ5qpXqgkTQYadjhQ.', 1),
+(7, 'Maria D', 'Lopez', 'ml@admin.com', 3, '$2y$10$Bj..B4ZLfT/NVzhp15P0zO6EuNVvTidE5OEQK8S1VlKS1l5/nN4.i', 0),
+(8, 'Jose', 'Lopez', 'jl@admin.com', 3, '$2y$10$lX4CFzgavMK6X.70PenLOOUOgyzu3A9fx.aYA1XlQyTgN7engZRDq', 1),
+(9, 'Marco', 'Lopez', 'ml@admin.com', 2, '$2y$10$3LPi/A2ZJLBWY9b6oy6Wfu7B.zk.7mK1U.osylydxsy/wpFcKCzVG', 1);
 
 --
 -- Índices para tablas volcadas
@@ -129,11 +186,24 @@ ALTER TABLE `encuesta`
   ADD KEY `id_codigo_evento` (`id_codigo_evento`);
 
 --
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`id_estado`),
+  ADD UNIQUE KEY `UNIQUE` (`id_estado`);
+
+--
 -- Indices de la tabla `evento`
 --
 ALTER TABLE `evento`
   ADD PRIMARY KEY (`id_codigo_evento`),
   ADD UNIQUE KEY `id_codigo_evento` (`id_codigo_evento`);
+
+--
+-- Indices de la tabla `niveles`
+--
+ALTER TABLE `niveles`
+  ADD PRIMARY KEY (`id_lvl`);
 
 --
 -- Indices de la tabla `pregunta`
@@ -147,7 +217,9 @@ ALTER TABLE `pregunta`
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_usr`);
+  ADD PRIMARY KEY (`id_usr`),
+  ADD KEY `nivel_usr` (`nivel_usr`),
+  ADD KEY `estado_usr` (`estado_usr`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -175,7 +247,7 @@ ALTER TABLE `pregunta`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_usr` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usr` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
@@ -201,6 +273,13 @@ ALTER TABLE `encuesta`
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`id_usr`) REFERENCES `user` (`id_usr`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pregunta_ibfk_2` FOREIGN KEY (`id_codigo_evento`) REFERENCES `evento` (`id_codigo_evento`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`nivel_usr`) REFERENCES `niveles` (`id_lvl`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`estado_usr`) REFERENCES `estado` (`id_estado`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
