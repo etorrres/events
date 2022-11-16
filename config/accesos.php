@@ -17,12 +17,12 @@ $rUser=mysqli_fetch_array($qUser);
 $nAccess=$rUser['level_access'];
 $fullNameUser=$rUser['firstname']." ".$rUser['lastname'];
 
-if($nAccess==0){
+if($nAccess==1){
     $puesto="Developer";
 
-}elseif($nAccess==1){
-    $puesto="Organizador";
 }elseif($nAccess==2){
+    $puesto="Organizador";
+}elseif($nAccess==3){
     $puesto="Asistente";
 }
 
