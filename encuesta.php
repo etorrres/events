@@ -26,9 +26,7 @@ include_once 'head.php';
                         <h4 class="text-themecolor"><?php echo $titulo; ?></h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
-                        </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -39,20 +37,19 @@ include_once 'head.php';
                                     <h4><strong>Brindanos tu opinión sobre el evento</strong></h4>
                                     <br>
                                 </div>
-                                <form action="encuesta_insert.php" method="POST">
-
+                                <form action="php/encuesta_new.php" method="POST">
                                     <div class="row">
                                         <label>1. ¿Primera vez en nuestros eventos?</label>
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" name="minimal-radio">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" value="true" name="pre_1">
                                                     <label for="minimal-radio-1">Si</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" name="minimal-radio">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" value="false" name="pre_1">
                                                     <label for="minimal-radio-2">No</label>
                                                 </li>
                                             </ul>
@@ -63,13 +60,13 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" name="minimal-radio1">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-1" value="true" name="pre_2">
                                                     <label for="minimal-radio-3">Si se presento</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-2" name="minimal-radio1">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-2" value="false" name="pre_2">
                                                     <label for="minimal-radio-4">No se presento</label>
                                                 </li>
                                             </ul>
@@ -80,19 +77,19 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio2">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="3" name="pre_3">
                                                     <label for="minimal-radio-1">Si pude</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio2">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="2" name="pre_3">
                                                     <label for="minimal-radio-1">No pude</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio2">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="1" name="pre_3">
                                                     <label for="minimal-radio-1">No tenia preguntas</label>
                                                 </li>
                                             </ul>
@@ -103,13 +100,13 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio3">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="pre_4">
                                                     <label for="minimal-radio-1">Si</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio3">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="false" name="pre_4">
                                                     <label for="minimal-radio-1">No</label>
                                                 </li>
                                             </ul>
@@ -120,19 +117,19 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio4">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="1" name="pre_5">
                                                     <label for="minimal-radio-1">Nada Probable</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio4">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="2" name="pre_5">
                                                     <label for="minimal-radio-1">Probable</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio4">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="3" name="pre_5">
                                                     <label for="minimal-radio-1">Seguro que asisto</label>
                                                 </li>
                                             </ul>
@@ -143,13 +140,13 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio5">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="pre_6">
                                                     <label for="minimal-radio-1">No me fue util</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio5">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="true" name="pre_6">
                                                     <label for="minimal-radio-1">Muy util</label>
                                                 </li>
                                             </ul>
@@ -160,13 +157,13 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio6">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="pre_7">
                                                     <label for="minimal-radio-1">Muy poco</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio6">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="true" name="pre_7">
                                                     <label for="minimal-radio-1">Mejoro bastante</label>
                                                 </li>
                                             </ul>
@@ -175,20 +172,11 @@ include_once 'head.php';
                                     <div class="row">
                                         <label>8. ¿Qué temas te gustaría que se trataran en conferencias futuras? </label>
                                         <div class="input-group">
-                                            <ul class="icheck-list">
-                                                <li>
-                                                    <input type="checkbox" class="check" id="minimal-checkbox-1" checked>
-                                                    <label for="minimal-checkbox-1">Ciberseguridad</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" class="check" id="minimal-checkbox-2">
-                                                    <label for="minimal-checkbox-2">Redes</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" class="check" id="minimal-checkbox-disabled">
-                                                    <label for="minimal-checkbox-3">Interner de las cosas</label>
-                                                </li>
-                                            </ul>
+                                            <select class="form-control" name="pre_8" required>
+                                                <option value="Tecnologia">Tecnologia</option>
+                                                <option value="Sociales">Temas Sociales</option>
+                                                <option value="Talleres">Talleres</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -196,13 +184,13 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio7">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="pre_9">
                                                     <label for="minimal-radio-1">Nunca</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio7">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="true" name="pre_9">
                                                     <label for="minimal-radio-1">Si, lo recomiendo</label>
                                                 </li>
                                             </ul>
@@ -213,23 +201,24 @@ include_once 'head.php';
                                         <div class="input-group">
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="minimal-radio8">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="pre_10">
                                                     <label for="minimal-radio-1">Poco probable</label>
                                                 </li>
                                             </ul>
                                             <ul class="icheck-list">
                                                 <li>
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" name="minimal-radio8">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-4" value="true" name="pre_10">
                                                     <label for="minimal-radio-1">Estare presente</label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
+                                    <input hidden type="text" name="id_evt" value="<?php echo $_GET['id'];?>"/>
+                                    <input hidden type="text" name="id_usr" value="<?php echo $id_usr;?>"/>
                                 <div class="form-group m-b-0">
                                     <div class="offset-sm-3 col-sm-9">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Enviar</button>
-                                        <button type="reset" class="btn btn-primary waves-effect waves-light">Cancelar</button>
-                                       
+                                    <button type="reset" class="btn btn-primary waves-effect waves-light">Cancelar</button>
                                     </div>
                                 </div>
                             </div>

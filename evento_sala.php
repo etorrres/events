@@ -59,7 +59,7 @@ include_once 'head.php';
                     ?>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                        <?php if($nivel_usr < 3 AND $datos['estatus_evt']<5){
+                        <?php if($nivel_usr < 3 AND $datos['estatus_evt']<6){
                             if($datos['estatus_evt']==1){
                                 $boto_txt="Alertar de Comienzo";
                                 $boto_clr="info";
@@ -77,6 +77,10 @@ include_once 'head.php';
                                 $boto_txt="Finalizar Evento";
                                 $boto_clr="danger";
                                 $boto_ref="php/estado_evt_update.php?id=$id_evento&st=5";
+                            }elseif($datos['estatus_evt']==5){
+                                $boto_txt="Reporte de Encuesta";
+                                $boto_clr="info";
+                                $boto_ref="evento_reporte.php?id=$id_evento";
                             }
                             ?>
                             <a href="<?php echo $boto_ref ;?>"<button type="button" class="btn btn-<?php echo $boto_clr; ?> d-none d-lg-block m-l-15"><?php echo $boto_txt;?></button></a>
@@ -85,7 +89,7 @@ include_once 'head.php';
                             <button type="button" class="btn btn-primary d-none d-lg-block m-l-15" data-toggle="modal" data-target="#responsive-modal"><i class="fa fa-hand-o-up"></i> Nueva pregunta</button>
                         <?php }?>
                         <?php if($datos['estatus_evt']==5 && $nivel_usr ==3){?>
-                            <a href="encuesta.php"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"> Encuesta</button></a>
+                            <a href="encuesta.php?id=<?php echo $id_evento;?>"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"> Encuesta</button></a>
                         <?php }?>
                         </div>
                     </div>
