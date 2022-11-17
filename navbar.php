@@ -13,8 +13,8 @@
                 if($nivel_usr==1){
                 ?>
                 <li> <a class="waves-effect waves-dark" href="index.php"><i class="icon-speedometer"></i><span class="hide-menu">Panel</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="usuarios.php"><i class="mdi mdi-account"></i><span class="hide-menu">Mis usuarios</span></a></li>
-                
+                <li> <a class="waves-effect waves-dark" href="usuarios.php"><i class="mdi mdi-account"></i><span class="hide-menu">Usuarios</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="encuesta.php"><i class="mdi mdi-account"></i><span class="hide-menu">Encuesta</span></a></li>
                 <?php
                 }
                 if($nivel_usr<4){
