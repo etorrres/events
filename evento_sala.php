@@ -84,6 +84,9 @@ include_once 'head.php';
                         <?php if($datos['estatus_evt']==4 && $nivel_usr ==3){?>
                             <button type="button" class="btn btn-primary d-none d-lg-block m-l-15" data-toggle="modal" data-target="#responsive-modal"><i class="fa fa-hand-o-up"></i> Nueva pregunta</button>
                         <?php }?>
+                        <?php if($datos['estatus_evt']==5 && $nivel_usr ==3){?>
+                            <a href="encuesta.php"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"> Encuesta</button></a>
+                        <?php }?>
                         </div>
                     </div>
                 </div>
