@@ -27,7 +27,7 @@ if(isset($user) || isset($pass)){
             $_SESSION['user_login_status'] = 1;
 
             echo '<script type="text/javascript">;
-            window.location.href="../index.php";</script>';
+            window.location.href="../eventos.php";</script>';
 
         }else{
             echo '<script type="text/javascript">;

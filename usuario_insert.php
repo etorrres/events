@@ -1,5 +1,6 @@
 <?php
-require('config/conexion.php');
+require_once 'config/db.php';
+require_once 'config/conexion.php';
 
 //Campos
 $nombre = $_POST['nombre'];
