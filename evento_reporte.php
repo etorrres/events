@@ -26,7 +26,7 @@ include_once 'head.php';
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-refresh"></i> Actualizar</button>
+                            <button type="button" onClick="window.location.reload();" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-refresh"></i> Actualizar</button>
                         </div>
                     </div>
                 </div>
