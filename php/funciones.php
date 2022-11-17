@@ -86,17 +86,17 @@ function enviar_notificacion ($id_evt, $tipo)
   $sEmail = "SELECT * FROM event_app.user, event_app.asistencia WHERE asistencia.id_codigo_evento = '$id_evt' AND asistencia.id_usuario = user.id_usr";
   $qEmail = mysqli_query($con,$sEmail);
 
-  $de="notificacion@eventApp.com";
-  $encabezado="Enviado automaticamente desde Event App";
+  $encabezado="From: notificacion@eventApp.com"."\r\n";
   $asunto="Notificacion Event App";
 
   while ($rEmail=mysqli_fetch_array($qEmail)){
-    $para = $rEmail['email_user'];
+    $para = $rEmail['email_usr'];
 
     mail($para,$asunto,$mensaje,$encabezado);
+    
 
   }
-  
+
 return true;
 
 }
